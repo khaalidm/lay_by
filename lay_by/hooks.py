@@ -133,6 +133,31 @@ app_license = "mit"
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
+override_doctype_class = {
+    "Customer": "lay_by.lay_by_module.doctype.customer.custom_customer.CustomCustomer"
+}
+
+# Fixtures for this app
+
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "dt", "=", "Customer"
+            ]
+        ]
+    },
+    {
+        "doctype": "Property Setter",
+        "filters": [
+            [
+                "doc_type", "=", "Customer"
+            ]
+        ]
+    }
+]
+
 # Document Events
 # ---------------
 # Hook on document methods and events
