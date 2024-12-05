@@ -17,7 +17,10 @@ class CustomCustomer(Customer):
                 frappe.throw("Passport Country of Origin is required if Identification Type is Passport")
 
     def check_lay_by_allowed(self):
-        if (self.custom_id_number or (self.custom_passport_number and self.custom_country_of_origin)) and self.mobile_no and self.custom_identification_type != "None":
+        if ((self.custom_id_number or (self.custom_passport_number and self.custom_country_of_origin)) 
+            and self.mobile_no 
+            and self.custom_identification_type != "None"
+            ):
             self.custom_layby_allowed = 1
         else:
             self.custom_layby_allowed = 0
